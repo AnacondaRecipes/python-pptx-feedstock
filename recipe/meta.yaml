@@ -15,10 +15,11 @@ build:
 
 requirements:
   host:
-    - python =2.7|>=3.6
+    - python =2.7|>=3.6,<3.10
     - pip
+    - wheel
   run:
-    - python =2.7|>=3.6
+    - python =2.7|>=3.6,<3.10
     - lxml >=3.1.0
     - pillow >=3.3.2
     - xlsxwriter >=0.5.7
@@ -39,17 +40,33 @@ test:
     - pptx.parts
     - pptx.shapes
     - pptx.text
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
-  home: http://github.com/scanny/python-pptx
+  home: https://github.com/scanny/python-pptx
   license_file: LICENSE
   license: MIT
   license_family: MIT
+  license_url: https://github.com/scanny/python-pptx/blob/master/LICENSE
   summary: Generate and manipulate Open XML PowerPoint (.pptx) files
-  dev_url: http://github.com/scanny/python-pptx
+  dev_url: https://github.com/scanny/python-pptx
   doc_url: https://python-pptx.readthedocs.io
-
+  doc_source_url: https://github.com/scanny/python-pptx
+  description: python-pptx is a Python library for creating and updating PowerPoint (.pptx) files
 extra:
+  skip-lints:
+    - avoid_noarch
+    - invalid_url
   recipe-maintainers:
     - pmlandwehr
     - synapticarbors
+
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/30904 
+    recipe-maintainers:
+      - ianaobi
+     
+	
