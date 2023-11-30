@@ -24,7 +24,7 @@ requirements:
     - python
     - lxml >=3.1.0
     - pillow >=3.3.2
-    - xlsxWriter >=0.5.7
+    - xlsxwriter >=0.5.7
     
 test:
   source_files:
