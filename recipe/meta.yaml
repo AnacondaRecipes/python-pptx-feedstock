@@ -45,6 +45,8 @@ test:
     - pptx.text
   requires:
     - pip
+    # Behave is not available for py3.12 and requires an update
+    # to an outdated version of setuptools(<58)
     # - behave >=1.2.5
     - mock >=1.0.1
     - pyparsing >=2.0.1
