@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [s390x]
+  skip: True  # [py<38 or s390x]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
 
 requirements:
@@ -25,7 +25,7 @@ requirements:
     - lxml >=3.1.0
     - pillow >=3.3.2
     - xlsxwriter >=0.5.7
-    
+
 test:
   source_files:
     - tests
@@ -61,11 +61,11 @@ about:
   license_family: MIT
   summary: Generate and manipulate Open XML PowerPoint (.pptx) files
   description: |
-    A typical use would be generating a PowerPoint presentation from dynamic content such as a database query, 
-    analytics output, or a JSON payload, perhaps in response to an HTTP request and downloading the generated 
+    A typical use would be generating a PowerPoint presentation from dynamic content such as a database query,
+    analytics output, or a JSON payload, perhaps in response to an HTTP request and downloading the generated
     PPTX file in response. It runs on any Python capable platform, including macOS and Linux, and does not require
     the PowerPoint application to be installed or licensed.
-  
+
   dev_url: https://github.com/scanny/python-pptx
   doc_url: https://python-pptx.readthedocs.io
 
