@@ -1,16 +1,16 @@
 {% set name = "python-pptx" %}
-{% set version = "0.6.23" %}
+{% set version = "1.0.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 587497ff28e779ab18dbb074f6d4052893c85dedc95ed75df319364f331fedee
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/python_pptx-{{ version }}.tar.gz
+  sha256: 479a8af0eaf0f0d76b6f00b0887732874ad2e3188230315290cd1f9dd9cc7095
 
 build:
-  number: 1
+  number: 0
   skip: True  # [py<38 or s390x]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
 
@@ -19,12 +19,14 @@ requirements:
     - python
     - pip
     - wheel
-    - setuptools
+    - setuptools >=61.0.0
   run:
     - python
     - lxml >=3.1.0
     - pillow >=3.3.2
     - xlsxwriter >=0.5.7
+    - libiconv
+    - typing-extensions >=4.9.0
 
 test:
   source_files:
@@ -32,7 +34,6 @@ test:
   imports:
     - pptx
     - pptx.chart
-    - pptx.compat
     - pptx.dml
     - pptx.enum
     - pptx.opc
